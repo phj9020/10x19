@@ -7,5 +7,71 @@
 }
 
 body {
-  font-family: "Caladea", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100vh;
+  background-color: $bg;
+  display: grid;
+  grid-template-columns: 1.5fr 1.9fr 1.5fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  gap: 1px;
+  & > * {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $bg;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  .menu {
+    grid-column-start: -2;
+  }
+  .center_image {
+    grid-column: 2;
+    grid-row: 2 / 3;
+    background-image: url("../../image/space.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .number_row {
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px;
+    .number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      background-color: white;
+      transition: color 0.1s linear, background-color 0.1s linear;
+      cursor: pointer;
+      &:hover {
+        background: $bg;
+        color: white;
+      }
+    }
+  }
+  .scrolling_text {
+    grid-column-start: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    span {
+      animation: scrollText 10s linear infinite forwards;
+    }
+  }
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(-150px);
+  }
+  50% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(-150px);
+  }
 }
